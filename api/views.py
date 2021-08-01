@@ -13,6 +13,13 @@ from rest_framework import viewsets
 from django.shortcuts import get_object_or_404
 
 
+# Generic Viewset
+class ArticleViewSet(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.CreateModelMixin,mixins.RetrieveModelMixin,mixins.UpdateModelMixin,mixins.DestroyModelMixin):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
+
+
+"""""
 # ViewSets
 
 class ArticleViewSet(viewsets.ViewSet):
@@ -47,6 +54,7 @@ class ArticleViewSet(viewsets.ViewSet):
         article = Article.objects.get(pk=pk)
         article.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+"""
 
 """""
 # mixins
