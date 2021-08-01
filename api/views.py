@@ -7,8 +7,36 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import APIView
+from rest_framework import generics
+from rest_framework import mixins
 
 
+# mixins
+class ArticleList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
+
+    def get(self, request):
+        return self.list(request)
+
+    def post(self, request):
+        return self.create(request)
+
+class ArticleDetails(generics.GenericAPIView, mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
+    lookup_field = "id"
+
+    def get(self,request,id):
+        return  self.retrieve(request, id=id)
+
+    def put(self,request,id):
+        return self.update(request, id=id)
+
+    def delete(self, request,id):
+        return self.destroy(request, id=id)
+
+"""
 # Class Based api_view
 
 class ArticleList(APIView):
@@ -49,7 +77,8 @@ class ArticleDetails(APIView):
         article = self.get_object(id=id)
         article.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-
+        
+"""
 
 """
 # Function based api_view
