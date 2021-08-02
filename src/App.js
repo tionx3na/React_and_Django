@@ -7,10 +7,10 @@ import MyClass from './components/classcomponent';
 function App() {
   return (
     <div className="App">
-      <h1>Hello World! </h1>
-      <Hello/>
+      <h1>Hello! </h1>
+      <Hello name = "ARUN" lastname = "BABU"/>
       <Temp/>
-      <MyClass/>
+      <MyClass email = "1runx3na@gmail.com"/>
     </div>
   );
 }

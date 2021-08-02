@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Hello() {
+function Hello(props) {
     return (
-        <h1>We are inside the function component</h1>
+      <h1>My name is {props.name} {props.lastname}</h1>
     );
 }
 
