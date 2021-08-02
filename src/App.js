@@ -10,7 +10,7 @@ function App() {
     alert("Class component clicked!")
 }
   return (
-    <div className="App">
+    <div className="container">
       <h1>Hello! </h1>
       <Hello name = "ARUN" lastname = "BABU"/>
       <Temp/>
