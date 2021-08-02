@@ -5,12 +5,16 @@ import Temp from './components/temp';
 import MyClass from './components/classcomponent';
 
 function App() {
+
+ function clicked() {
+    alert("Class component clicked!")
+}
   return (
     <div className="App">
       <h1>Hello! </h1>
       <Hello name = "ARUN" lastname = "BABU"/>
       <Temp/>
-      <MyClass email = "1runx3na@gmail.com"/>
+      <MyClass email = "1runx3na@gmail.com" myclick = {clicked}/>
     </div>
   );
 }
